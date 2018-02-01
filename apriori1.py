@@ -8,7 +8,7 @@ def input_transactions():
     trans_list = []
     max_len = -1
     for trans in range(n):
-        x = list(map(int, input("Enter items in the transaction (space-separated) >> ").strip().split()))
+        x = list(map(int, input("Enter transaction : ").strip().split()))
         trans_list.append(x)
         if len(x)> max_len:
             max_len = len(x)
@@ -34,7 +34,7 @@ def apriori(trans_list, max_len, ms):
             for k in trans_item_set:
                 cnt[k] += 1
         print("\n=== ", str(i) + "-Item Set === ")
-        for z in cnt:                                   
+        for z in cnt:
             if cnt[z] != 0:
                 print(z, cnt[z])
                 if cnt[z] >= ms:
@@ -42,8 +42,8 @@ def apriori(trans_list, max_len, ms):
     return final
 
 
-n = int(input("Number of transactions >> "))
-min_support = int(input("Minimum support >> "))
+n = int(input("Enter number of transactions : "))
+min_support = int(input("Enter Minimum support : "))
 transactions, max_trans_len = input_transactions()
 final_set = apriori(transactions, max_trans_len, min_support)
 print(final_set)
